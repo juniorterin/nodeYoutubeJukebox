@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playlist Pública</title>
+    <!-- Bootstrap CSS -->
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container text-center bg-dark" style="width: 100%; max-width: 350px">
+      <!--       <h1>Playlist Pública de YouTube</h1> -->
+
+      <div id="add-video-section" class="mb-4" >
+        <img
+          class="img-fluid mb-4 mt-1" style="max-width: 200px;"
+          src="https://cdn.glitch.global/a63dec53-ef8a-418b-97f6-9ed2b4886e42/LOGO%20BAR%20NOVA.avif?v=1733761211085"
+        />
+        <br />
+        <input
+          type="text"
+          id="video-url"
+          class="form-control mb-3"
+          placeholder="Cole o link do vídeo do YouTube aqui"
+        />
+        <button id="add-video-btn" class="btn btn-primary w-100">
+          Adicionar Vídeo
+        </button>
+        <p id="message" class="mt-2 text-danger"></p>
+      </div>
+
+      <a
+        href="https://www.youtube.com/playlist?list=PLHgQy7iGRTQBZrxXphjLLXfoHCdKJkwfp"
+        target="_blank"
+        >Acesse a playlist</a
+      >
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <script src="script.js"></script>
+  </body>
+</html>
