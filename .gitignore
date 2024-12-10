@@ -1,5 +1,6 @@
-# Credencial Google
 .data/
+ngrok.exe
+process.env
 
 # Logs
 logs

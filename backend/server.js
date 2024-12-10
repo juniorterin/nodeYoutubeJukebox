@@ -7,12 +7,14 @@ const path = require("path");
 const fs = require("fs");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
+
+console.log(process.env.CLIENT_ID)
 
 // Variáveis de ambiente
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
-const REDIRECT_URI = process.env.REDIRECT_URI;
+const REDIRECT_URI = process.env.URI_BASE + '/oauth2callback';
 const YOUTUBE_PLAYLIST_ID = process.env.YOUTUBE_PLAYLIST_ID;
 
 // Inicializar Firebase Admin
@@ -67,7 +69,7 @@ const oAuth2Client = new google.auth.OAuth2(
       });
       console.log("API do YouTube configurada com o refresh_token");
     } else {
-      console.log("Nenhum refresh_token encontrado. Autentique manualmente.");
+      console.log("Nenhum refresh_token encontrado. Autentique manualmente acessando" + process.env.URI_BASE + "/auth-url");
     }
   } catch (error) {
     console.error(
@@ -190,7 +192,7 @@ app.get("/auth-url", (req, res) => {
     scope: ["https://www.googleapis.com/auth/youtube.force-ssl"],
     prompt: "consent", // Força o usuário a dar consentimento novamente
   });
-  res.send({ authUrl });
+  res.redirect(authUrl);
 });
 
 // Callback para salvar o refresh_token após autenticação manual
